@@ -82,8 +82,6 @@ app.get("/secret", require("connect-ensure-login").ensureLoggedIn(), function(re
   res.render("secret", { user: req.user });
 });
 
-
-
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
