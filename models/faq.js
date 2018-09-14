@@ -20,9 +20,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  item.associate = function(models) {
-    item.hasMany(models.faq, {
-      onDelete: "cascade"
+  FAQ.associate = function(models) {
+    FAQ.belongsTo(models.Products, {
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
 

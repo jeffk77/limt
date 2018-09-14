@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Products = sequelize.define("Products", {
     item: {
       type: DataTypes.STRING,
@@ -21,13 +21,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  item.associate = function(models) {
-    item.belongsTo(models.products, {
-      foreignKey: {
-        allowNull: false
-      }
+  Products.associate = function(models) {
+    Products.hasMany(models.FAQ, {
+      onDelete: "cascade"
     });
   };
-  
+
   return Products;
 };
