@@ -2,9 +2,11 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "exampledb",
+    "database": "limt_db",
     "host": "localhost",
-    "dialect": "mysql"
+    "port": 3306,
+    "dialect": "mysql",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
