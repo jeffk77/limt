@@ -25,7 +25,9 @@ module.exports = function(app, passport) {
   });
 
   app.get("/products", function(req, res) {
-    res.render("products");
+    db.Products.findAll({}).then(function(Products) {
+      res.render("products", { products: Products });
+    });
   });
 
   app.get("/order", function(req, res) {
