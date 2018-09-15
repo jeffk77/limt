@@ -1,3 +1,11 @@
 <div>
     <p>Products page here</p>
 </div>
+
+<div>
+    <ul>
+        {{#each products}}
+            <li data-id={{this.id}}>{{this.item}}, (photo id is {{this.photo_Id}})</li>
+        {{/each}}
+    </ul>
+</div>
