@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Products = sequelize.define("Products", {
     item: {
       type: DataTypes.STRING,
@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     },
-    photo_id: {
+    photo_Id: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "Timbits"
