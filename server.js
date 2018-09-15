@@ -56,32 +56,11 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app, passport);
 
 var syncOptions = { force: false };
 
 // Passport Test Routes
-app.get("/authex", function(req, res) {
-  res.render("authex", { user: req.user });
-});
-
-app.get("/login", function(req, res) {
-  res.render("login");
-});
-
-app.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), function(req, res) {
-  res.redirect("/authex");
-});
-
-app.get("/logout", function(req, res) {
-  req.logout();
-  res.redirect("/authex");
-});
-
-app.get("/secret", require("connect-ensure-login").ensureLoggedIn(), function(req, res) {
-  res.render("secret", { user: req.user });
-});
-
 
 
 // If running a test, set syncOptions.force to true
