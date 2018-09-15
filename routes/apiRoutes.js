@@ -2,27 +2,27 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all products from Products table
-  app.get("/products", function(req, res) {
+  app.get("/api/products/all", function(req, res) {
     db.Products.findAll({}).then(function(Products) {
       res.json(Products);
     });
   });
 
   // Create new product from the administrator page
-  app.post("/api/products", function(req, res) {
+  app.post("/api/products/new", function(req, res) {
     db.Products.create(req.body).then(function(Products) {
       res.json(Products);
     });
   });
 
-  app.post("/api/posts/:id", function(req, res) {
+  app.put("/api/products/update/:id", function(req, res) {
     db.faq.create(req.body).then(function(faq) {
       res.json(faq);
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
+  app.delete("/api/products/delete/:id", function(req, res) {
     db.Products.destroy({ where: { id: req.params.id } }).then(function(Products) {
       res.json(Products);
     });
