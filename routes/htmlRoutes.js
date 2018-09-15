@@ -48,7 +48,9 @@ module.exports = function(app, passport) {
   });
   
   app.get("/admin", require("connect-ensure-login").ensureLoggedIn(), function(req, res) {
-    res.render("admin", { user: req.user });
+    db.Products.findAll({}).then(function(Products) {
+      res.render("admin", { user: req.user, products: Products });
+    });
   });
 
   // Render 404 page for any unmatched routes

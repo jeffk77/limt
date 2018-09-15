@@ -11,4 +11,24 @@
 
 <p>In this page, Carolyn will be able to interact directly with the database.</p>
 
+<h2>Product List</h2>
+<ul>
+    {{#each products}}
+        <li>{{this.item}} <button class="delete_product" data-id={{this.id}}><i class="fas fa-times"></i></button></li>
+    {{/each}}
+</ul>
+
 <a href="/logout">Log out here</a>
+
+<script>
+    $(document).ready(function() {
+        $(document).on("click", ".delete_product", function() {
+            $.ajax("api/products/delete/" + $(this).attr("data-id"), {
+                type: "DELETE"
+            }).then(function() {
+                location.reload();
+            }); 
+        });  
+    });
+
+</script>
