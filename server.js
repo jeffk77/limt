@@ -2,16 +2,48 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var passport = require("passport");
+var Strategy = require("passport-local").Strategy;
+var auth = require("./auth");
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// Middleware
+// BodyParser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+
+// Express-Session Middleware
+app.use(require("express-session")({ secret: "limt", resave: false, saveUninitialized: false }));
+
+// Passport Middleware
+passport.use(new Strategy(
+  function(username, password, cb) {
+    auth.users.findByUsername(username, function(err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      if (user.password != password) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb) {
+  auth.users.findById(id, function(err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -24,9 +56,12 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app, passport);
 
 var syncOptions = { force: false };
+
+// Passport Test Routes
+
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

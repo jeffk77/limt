@@ -1,0 +1,9 @@
+<h2>Hello, this is a demo of the login functionality.</h2>
+
+{{#if user}}
+    <p>By the way, you are logged in as {{user.username}}</p>
+{{/if}}
+
+<p>This is the login page: <a href="/login">login here</a></p>
+<p>This is the "secret page": <a href="/secret">secret here</a></p>
+<p>If you are not logged in, the secret page should not work. If you are, it should work.</p>
