@@ -16,14 +16,22 @@ module.exports = function(app) {
   });
 
   app.put("/api/products/update/:id", function(req, res) {
-    db.faq.create(req.body).then(function(faq) {
-      res.json(faq);
+    db.Products.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(Products) {
+      res.json(Products);
     });
   });
 
   // Delete an example by id
   app.delete("/api/products/delete/:id", function(req, res) {
-    db.Products.destroy({ where: { id: req.params.id } }).then(function(Products) {
+    db.Products.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(Products) {
       res.json(Products);
     });
   });
