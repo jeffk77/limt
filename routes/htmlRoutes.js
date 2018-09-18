@@ -31,12 +31,14 @@ module.exports = function(app, passport) {
   });
 
   app.get("/order", function(req, res) {
-    res.render("order");
+    db.Products.findAll({}).then(function(Products) {
+      res.render("order", { products: Products });
+    });
   });
 
   app.get("/login", function(req, res) {
     res.render("login");
-  })
+  });
   
   app.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), function(req, res) {
     res.redirect("/");
@@ -48,7 +50,9 @@ module.exports = function(app, passport) {
   });
   
   app.get("/admin", require("connect-ensure-login").ensureLoggedIn(), function(req, res) {
-    res.render("admin", { user: req.user });
+    db.Products.findAll({}).then(function(Products) {
+      res.render("admin", { user: req.user, products: Products });
+    });
   });
 
   // Render 404 page for any unmatched routes
