@@ -1,3 +1,30 @@
 <div>
     <p>Custom order page here.</p>
 </div>
+<h2>Sample Order Form</h2>
+
+<form>
+    <select name="products" id="selection">
+        {{#each products}}
+            <option value={{this.item}} id={{this.id}}>{{this.item}}</option>
+        {{/each}}
+    </select>
+    <!--More stuff, like custom message, etc?-->
+    <div id="quote"></div>
+    <button id="submit">Submit</button>
+</form>
+
+<script>
+    $("#selection").on("change", function() {
+        let selection = $(this).children(":selected").attr("id");
+        $.ajax("api/products/all", {
+            type: "GET"
+        }).then(function(results) {
+            $("#quote").empty();
+            let selected_product = results.find( product => product.id == selection );       
+            $("#quote").html("Anticipated price: " + selected_product["base_price"]);
+        }); 
+    });
+
+    // Can do some fancy jQuery/JS work here to return img of product on hover, select, etc.
+</script>
