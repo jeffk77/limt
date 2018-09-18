@@ -2,18 +2,41 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <title>Love in my Tummy Sweets</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../../public/styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../../public/styles/style_materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav>
-    <a href="/">Home Page</a>
-    <a href="/products">Products Page</a>
-    <a href="/order">Custom Order Form</a>
-    <a href="/login">Login Page (Admin Only)</a>
-    <a href="/admin">Admin Page</a>
+  {{!-- Main Nav Bar --}}
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/products">Products Page</a></li>
+        <li><a href="/order">Custom Order Form</a></li>
+        <li><a href="/login">Login Page (Admin Only)</a></li>
+        <li><a href="/admin">Admin Page</a></li>
+
+  {{!-- Mobile Nav Bar --}}
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/products">Products Page</a></li>
+        <li><a href="/order">Custom Order Form</a></li>
+        <li><a href="/login">Login Page (Admin Only)</a></li>
+        <li><a href="/admin">Admin Page</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
   </nav>
 
   {{{body}}}
