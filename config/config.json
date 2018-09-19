@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Kushner77!",
+    "password": "password",
     "database": "limt_db",
     "host": "localhost",
     "port": 3306,
