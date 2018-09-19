@@ -10,11 +10,12 @@
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "testdb",
+    "password": "password",
+    "database": "limt_db",
     "host": "localhost",
     "dialect": "mysql",
-    "logging": false
+    "logging": false,
+    "operatorsAliases": false
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",

@@ -1,3 +1,5 @@
+process.env.NODE_ENV = "test";
+
 var chai = require("chai");
 var chaiHttp = require("chai-http");
 var server = require("../server");
@@ -9,7 +11,7 @@ chai.use(chaiHttp);
 
 var request;
 
-describe("GET /products", function() {
+describe("GET /api/products/all", function() {
   // Before each test begins, create a new request server for testing
   // & delete all examples from the db
   beforeEach(function() {
@@ -24,7 +26,7 @@ describe("GET /products", function() {
       { item: "Second Example", base_price: 5.99 }
     ]).then(function() {
       // Request the route that returns all examples
-      request.get("/products").end(function(err, res) {
+      request.get("/api/products/all").end(function(err, res) {
         var responseStatus = res.status;
         var responseBody = res.body;
 
@@ -40,11 +42,11 @@ describe("GET /products", function() {
 
         expect(responseBody[0])
           .to.be.an("object")
-          .that.includes({ item: "First Example", base_price: 5.99 });
+          .that.includes({ item: "First Example", base_price: "5.99" });
 
         expect(responseBody[1])
           .to.be.an("object")
-          .that.includes({ item: "Second Example", base_price: 5.99 });
+          .that.includes({ item: "Second Example", base_price: "5.99" });
 
         // The `done` function is used to end any asynchronous tests
         done();
