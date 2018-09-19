@@ -11,4 +11,56 @@
 
 <p>In this page, Carolyn will be able to interact directly with the database.</p>
 
+<h2>Product List</h2>
+<ul>
+    {{#each products}}
+        <li>{{this.item}} <button class="delete_product" data-id={{this.id}}><i class="fas fa-times"></i></button></li>
+    {{/each}}
+</ul>
+
+<h2>Add a Product</h2>
+<form>
+	<div>
+	<label>Item:</label>
+	<input type="text" id="item" name="item"/><br/>
+	</div>
+	<div>
+	<label>Base Price:</label>
+	<input type="text" id="base_price" name="base_price"/>
+	</div>
+	<div>
+	<label>Photo ID:</label>
+	<input type="text" id="photo_Id" name="photo_Id"/>
+	</div>
+	<div>
+    <button id="submit">Submit</button>
+	</div>
+</form>
+
 <a href="/logout">Log out here</a>
+
+<script>
+    $(document).ready(function() {
+        $(document).on("click", ".delete_product", function() {
+            $.ajax("api/products/delete/" + $(this).attr("data-id"), {
+                type: "DELETE"
+            }).then(function() {
+                location.reload();
+            }); 
+        });
+        $("#submit").on("click", function(event) {
+            event.preventDefault();
+            $.ajax("api/products/new", {
+                type: "POST",
+                data: {
+                    item: $("#item").val().trim(),
+                    base_price: $("#base_price").val().trim(),
+                    photo_Id: $("#photo_Id").val().trim()
+                }
+            }).then(function() {
+                location.reload();
+            });
+        });
+    });
+
+</script>
