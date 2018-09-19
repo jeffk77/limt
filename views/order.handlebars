@@ -1,30 +1,90 @@
 <div>
-    <p>Custom order page here.</p>
-</div>
-<h2>Sample Order Form</h2>
+    <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Place your order</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Make an order today with us!</h5>
+      </div>
+      <div class="row center">
+       
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Occassion" id="title" type="text" class="validate">
+        <label for="title">Title</label>
+      </div>
+    </div>
 
-<form>
-    <select name="products" id="selection">
-        {{#each products}}
-            <option value={{this.item}} id={{this.id}}>{{this.item}}</option>
-        {{/each}}
-    </select>
-    <!--More stuff, like custom message, etc?-->
-    <div id="quote"></div>
-    <button id="submit">Submit</button>
-</form>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="beginDate" type="date" class="datepicker">
+        <label>Delivery date</label>
+      </div>
+
+      <div class="input-field col s6">
+ 
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="E.g. John Smith" id="website" type="text" class="validate">
+        <label for="website">Full Name</label>
+      </div>
+
+      <div class="input-field col s6">
+        <input placeholder="contact@myweb.com" id="email" type="text" class="validate">
+        <label for="email">Contact email</label>
+      </div>
+    </div>
+
+ <div class="row">
+      <div class="input-field col s6">
+        <select multiple>
+          <option value="" disabled selected>Choose Product</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>Products</label>
+      </div>
+      <div class="input-field col s6">
+        <select multiple>
+          <option value="" disabled selected>Choose Quantity</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>Quantity</label>
+      </div>
+    </div>
+
+
+  </form>
+</div>
+
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+</div>
+
 
 <script>
-    $("#selection").on("change", function() {
-        let selection = $(this).children(":selected").attr("id");
-        $.ajax("api/products/all", {
-            type: "GET"
-        }).then(function(results) {
-            $("#quote").empty();
-            let selected_product = results.find( product => product.id == selection );       
-            $("#quote").html("Anticipated price: " + selected_product["base_price"]);
-        }); 
-    });
+         $(document).ready(function(){
+    $('select').formSelect();
 
-    // Can do some fancy jQuery/JS work here to return img of product on hover, select, etc.
+    $('.datepicker').pickadate({
+    min: new Date(),
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    firstDay: 1
+  });
+
+var picker = $('#beginDate').pickadate('picker');
+picker.set('select', new Date());
+var picker = $('#endDate').pickadate('picker');
+picker.set('select', new Date());
+
+ $('select').material_select();
 </script>
