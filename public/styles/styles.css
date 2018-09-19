@@ -1,0 +1,125 @@
+/* font-family: 'Aguafina Script', cursive; */
+/* font-family: 'Josefin Sans', sans-serif; */
+
+
+h1 {
+    font-family: 'Aguafina Script', cursive;
+}
+h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(116, 116, 116);
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.75em;
+}
+h4 {
+    font-size: 1.5em;
+}
+h5 {
+    font-size: 1.25em;
+}
+h6 {
+    font-size: 1em;
+}
+p {
+    font-size: 1.25em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+header {
+    padding-top: 10px;
+    text-align: center;
+}
+.contactBar {
+    border-bottom: 0.5px solid rgb(201, 201, 201);
+    padding-bottom: 10px;
+}
+main {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+section {
+    text-align: center;
+}
+.icon {
+    padding: 5px;
+}
+.mainTitle {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.divider {
+    width: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.title {
+    text-align: center;
+}
+.subtitle {
+    text-align: center;
+    letter-spacing: 3px;
+}
+nav {
+    background-color: white;
+    box-shadow: none;
+}
+nav.nav-center ul {
+    text-align: center;
+}
+nav.nav-center ul li {
+    display: inline;
+    float: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+nav.nav-center ul li a {
+    display: inline-block;
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.25em;
+}
+.card-image {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+.socialBox {
+    margin-top: -275px;
+    background-color: rgb(50,50,50);
+    text-align: center;
+    padding: 400px 30px 30px 30px;
+    height: auto;
+}
+.socialBox .title {
+    color: white;
+}
+.contactBox {
+    background-color: black;
+    height: 500px;
+    padding: 30px;
+}
+.contactBox .title {
+    color: white;
+}
+.contactPoints {
+    background-color: rgb(50,50,50);
+}
+.contactPoints .subtitle {
+    padding: 300px;
+}
+footer {
+    background-color: black;
+}
+footer h6 {
+    font-size: 0.75em;
+    padding: 30px;
+    text-align: center;
+}
