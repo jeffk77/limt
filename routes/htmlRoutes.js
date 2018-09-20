@@ -25,8 +25,12 @@ module.exports = function(app, passport) {
   });
 
   app.get("/products", function(req, res) {
+      res.render("products");
+  });
+
+  app.get("/products_backup", function(req, res) {
     db.Products.findAll({}).then(function(Products) {
-      res.render("products", { products: Products });
+      res.render("products_backup", { products: Products });
     });
   });
 
@@ -41,7 +45,7 @@ module.exports = function(app, passport) {
   });
   
   app.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), function(req, res) {
-    res.redirect("/");
+    res.redirect("/admin");
   });
   
   app.get("/logout", function(req, res) {
