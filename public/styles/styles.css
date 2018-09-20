@@ -1,23 +1,35 @@
+/* SAVED FONT CSS CODING */
+
 /* font-family: 'Aguafina Script', cursive; */
 /* font-family: 'Josefin Sans', sans-serif; */
 
 
+/* GLOBAL CSS */
+
 h1 {
     font-family: 'Aguafina Script', cursive;
 }
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Josefin Sans', sans-serif;
     color: rgb(116, 116, 116);
+    font-weight: 200;
 }
 h1 {
     font-size: 3em;
 }
+
 h2 {
     font-size: 2em;
 }
+
 h3 {
     font-size: 1.75em;
 }
+
 h4 {
     font-size: 1.5em;
 }
@@ -33,6 +45,27 @@ p {
     font-weight: 100;
     text-align: center;
 }
+.title {
+    text-align: center;
+}
+.subtitle {
+    text-align: center;
+    letter-spacing: 3px;
+}
+.icon {
+    padding: 5px;
+}
+.divider {
+    width: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.validate {
+    color: white;
+}
+
+
+/* HEADER CSS */
 
 header {
     padding-top: 10px;
@@ -41,32 +74,6 @@ header {
 .contactBar {
     border-bottom: 0.5px solid rgb(201, 201, 201);
     padding-bottom: 10px;
-}
-main {
-    padding-top: 75px;
-    padding-bottom: 75px;
-}
-section {
-    text-align: center;
-}
-.icon {
-    padding: 5px;
-}
-.mainTitle {
-    margin-top: 10px;
-    margin-bottom: 50px;
-}
-.divider {
-    width: 50px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.title {
-    text-align: center;
-}
-.subtitle {
-    text-align: center;
-    letter-spacing: 3px;
 }
 nav {
     background-color: white;
@@ -87,13 +94,36 @@ nav.nav-center ul li a {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.25em;
 }
+
+
+/* MAIN SECTION CSS */
+
+main {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+section {
+    text-align: center;
+}
+.mainTitle {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
 .card-image {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
+.card-content {
+    max-height: auto;
+    min-height: 250px;
+}
+
+
+/* FOOTER CSS CODING */
+
 .socialBox {
     margin-top: -275px;
-    background-color: rgb(50,50,50);
+    background-color: rgb(50, 50, 50);
     text-align: center;
     padding: 400px 30px 30px 30px;
     height: auto;
@@ -103,23 +133,37 @@ nav.nav-center ul li a {
 }
 .contactBox {
     background-color: black;
-    height: 500px;
-    padding: 30px;
+    height: auto;
+    padding: 50px;
 }
 .contactBox .title {
     color: white;
 }
 .contactPoints {
-    background-color: rgb(50,50,50);
+    background-color: rgb(50, 50, 50);
+    text-align: center;
+    padding: 100px;
 }
-.contactPoints .subtitle {
-    padding: 300px;
+.contactPoints .title {
+    color: white;
 }
 footer {
     background-color: black;
 }
 footer h6 {
-    font-size: 0.75em;
+    font-size: 1em;
     padding: 30px;
     text-align: center;
+}
+.contactBubble {
+    background-color: rgb(39, 39, 39);
+    padding: 10px;
+    border-radius: 30px;
+}
+.contactBubble h2 {
+    color: white;
+}
+.loginBox {
+    border: 1px dashed black;
+    margin: 150px 50px;
 }
