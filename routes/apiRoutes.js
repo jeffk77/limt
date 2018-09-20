@@ -9,13 +9,13 @@ module.exports = function(app) {
   });
 
   // Create new product from the administrator page
-  app.post("/api/products/new", function(req, res) {
+  app.post("/api/products/new", require("connect-ensure-login").ensureLoggedIn(), function(req, res) {
     db.Products.create(req.body).then(function(Products) {
       res.json(Products);
     });
   });
 
-  app.put("/api/products/update/:id", function(req, res) {
+  app.put("/api/products/update/:id", require("connect-ensure-login").ensureLoggedIn(), function(req, res) {
     db.Products.update(req.body, {
       where: {
         id: req.params.id
@@ -26,7 +26,7 @@ module.exports = function(app) {
   });
 
   // Delete an example by id
-  app.delete("/api/products/delete/:id", function(req, res) {
+  app.delete("/api/products/delete/:id", require("connect-ensure-login").ensureLoggedIn(), function(req, res) {
     db.Products.destroy({
       where: {
         id: req.params.id
