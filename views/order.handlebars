@@ -39,25 +39,19 @@
 
  <div class="row">
       <div class="input-field col s6">
-        <select multiple>
-          <option value="" disabled selected>Choose Product</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+        <select multiple name = "products" id = "selection">
+          {{#each products}}
+          <option value={{this.item}} id={{this.id}}>{{this.item}}</option>
+        {{/each}}
         </select>
         <label>Products</label>
       </div>
       <div class="input-field col s6">
-        <select multiple>
-          <option value="" disabled selected>Choose Quantity</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
-        <label>Quantity</label>
+       <button  value="Submit" type='submit' name='btn_login' class='col s12 btn btn-large waves-effect black'>Submit</button>
       </div>
     </div>
 
+    <div id="quote"></div>
 
   </form>
 </div>
@@ -72,6 +66,7 @@
 
 <script>
          $(document).ready(function(){
+
     $('select').formSelect();
 
     $('.datepicker').pickadate({
@@ -87,4 +82,21 @@ var picker = $('#endDate').pickadate('picker');
 picker.set('select', new Date());
 
  $('select').material_select();
+
+ $("#selection").on("change", function() {
+        let selection = $(this).children(":selected").attr("id");
+        $.ajax("api/products/all", {
+            type: "GET"
+        }).then(function(results) {
+            $("#quote").empty();
+            let selected_product = results.find( product => product.id == selection );       
+            $("#quote").html("Anticipated price: " + selected_product["base_price"]);
+        }); 
+    });
+
+
+
+
+});
+
 </script>
