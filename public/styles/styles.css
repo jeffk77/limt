@@ -16,7 +16,7 @@ h5,
 h6 {
     font-family: 'Josefin Sans', sans-serif;
     color: rgb(116, 116, 116);
-    font-weight: 200;
+    font-weight: 300;
 }
 h1 {
     font-size: 3em;
@@ -42,7 +42,7 @@ h6 {
 p {
     font-size: 1.25em;
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     text-align: center;
 }
 .title {
